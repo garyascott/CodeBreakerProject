@@ -1,8 +1,8 @@
 var answer = document.getElementById('answer');
 var attempt = document.getElementById('attempt');
 var results = document.getElementById('results');
-var answerHidden = Math.floor(Math.random() * 9999) + 0;
-var answerString = answerHidden.toString();
+// var answerHidden = Math.floor(Math.random() * 9999) + 0;
+// var answerString = answerHidden.toString();
 var answerValue = answer.value;
 var attemptValue = attempt.value;
 var message = document.getElementById('message');
@@ -80,7 +80,7 @@ var getResults = function(input) {
     results.innerHTML += result;
 
 
-    if (correct == answerHidden.toString().length) {
+    if (correct == 4) {
         console.log(correct);
         setMessage('You Win! :)');
         showReplay();
@@ -103,6 +103,7 @@ var getResults = function(input) {
 var showReplay = function() {
     document.getElementById('guessing-div').style.display = 'none';
     document.getElementById('replay-div').style.display = 'block';
+    setHiddenFields();
 }
 
 var code = document.getElementById('code');
@@ -131,6 +132,9 @@ var setMessage = function(messageContent) {
 }
 
 var setHiddenFields = function() {
+    var answerHidden = Math.floor(Math.random() * 9999) + 0;
+    var answerString = answerHidden.toString();
+
     attempt.value = 0;
     if (answerString.length < 4) {
         answerString = "0" + answerString;
