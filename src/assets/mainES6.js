@@ -1,14 +1,14 @@
-var answer = document.getElementById('answer');
-var attempt = document.getElementById('attempt');
-var results = document.getElementById('results');
-var answerHidden = Math.floor(Math.random() * 9999) + 0;
-var answerString = answerHidden.toString();
-var answerValue = answer.value;
-var attemptValue = attempt.value;
-var message = document.getElementById('message');
+let answer = document.getElementById('answer');
+let attempt = document.getElementById('attempt');
+let results = document.getElementById('results');
+let answerHidden = Math.floor(Math.random() * 9999) + 0;
+let answerString = answerHidden.toString();
+let answerValue = answer.value;
+let attemptValue = attempt.value;
+let message = document.getElementById('message');
 
-var guess = function() {
-    var input = document.getElementById('user-guess');
+let guess = () => {
+    let input = document.getElementById('user-guess');
     //add functionality to guess function here
     if (answer.value == '' || attempt.value == '') {
         //alert('firstPart');
@@ -28,19 +28,19 @@ var guess = function() {
 }
 
 //implement new functions here
-var getResults = function(input) {
-    var values = input.value.toString();
-    var answerSplit = answer.value.toString().split("");
-    var glyphicon = '';
-    var temp = answer.value.toString().split("");
-    var correct = 0;
+let getResults = (input) => {
+    let values = input.value.toString();
+    let answerSplit = answer.value.toString().split("");
+    let glyphicon = '';
+    let temp = answer.value.toString().split("");
+    let correct = 0;
 
-    for (var i = 0, x = input.value.length; i < x; i++) {
+    for (let i = 0, x = input.value.length; i < x; i++) {
         console.log(i);
-        var valueSplit = values.split("");
+        let valueSplit = values.split("");
         console.log(`${values} : ${valueSplit[i]} : ${answerSplit[i]}`);
         if (valueSplit[i] == answerSplit[i]) {
-            //var index = temp.indexOf(valueSplit[i]);
+            //let index = temp.indexOf(valueSplit[i]);
             console.log('before' + temp);
             // if (index > -1) {
             //     temp.splice(index, 1);
@@ -51,8 +51,8 @@ var getResults = function(input) {
             correct += 1;
 
         } else {
-            var count = 0;
-            for (var j = 0, anwserLength = answer.value.length; j < anwserLength; j++) {
+            let count = 0;
+            for (let j = 0, anwserLength = answer.value.length; j < anwserLength; j++) {
                 if (valueSplit[i] == answer.value[j]) {
                     console.log('no');
                     count = 1;
@@ -69,7 +69,7 @@ var getResults = function(input) {
         }
     }
 
-    var result = `
+    let result = `
         <div class="row">
         <span class="col-md-6">${input.value}</span>
         <div class="col-md-6">
@@ -100,14 +100,14 @@ var getResults = function(input) {
 }
 
 
-var showReplay = function() {
+let showReplay = () => {
     document.getElementById('guessing-div').style.display = 'none';
     document.getElementById('replay-div').style.display = 'block';
 }
 
-var code = document.getElementById('code');
+let code = document.getElementById('code');
 
-var showAnswer = function(boolean) {
+let showAnswer = (boolean) => {
     code.innerHTML = answer.value;
     if (boolean) {
         code.className += " success";
@@ -118,7 +118,7 @@ var showAnswer = function(boolean) {
 
 
 
-var validateInput = function(input) {
+let validateInput = (input) => {
     if (input.length != 4) {
         setMessage("Guesses must be exactly 4 characters long. " + input);
         return false;
@@ -126,11 +126,11 @@ var validateInput = function(input) {
     return true;
 }
 
-var setMessage = function(messageContent) {
+let setMessage = (messageContent) => {
     message.innerHTML = messageContent;
 }
 
-var setHiddenFields = function() {
+let setHiddenFields = () => {
     attempt.value = 0;
     if (answerString.length < 4) {
         answerString = "0" + answerString;
