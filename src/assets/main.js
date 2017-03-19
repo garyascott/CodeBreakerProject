@@ -29,10 +29,9 @@ var guess = function() {
 
 //implement new functions here
 var getResults = function(input) {
-    var values = input.value.toString();
-    var answerSplit = answer.value.toString().split("");
+    var values = input.value;
+    var answerSplit = answer.value.split("");
     var glyphicon = '';
-    var temp = answer.value.toString().split("");
     var correct = 0;
 
     for (var i = 0, x = input.value.length; i < x; i++) {
@@ -40,13 +39,6 @@ var getResults = function(input) {
         var valueSplit = values.split("");
         console.log(`${values} : ${valueSplit[i]} : ${answerSplit[i]}`);
         if (valueSplit[i] == answerSplit[i]) {
-            //var index = temp.indexOf(valueSplit[i]);
-            console.log('before' + temp);
-            // if (index > -1) {
-            //     temp.splice(index, 1);
-            // }
-
-            console.log('after' + temp);
             glyphicon += `<span class="glyphicon glyphicon-ok"></span>`;
             correct += 1;
 
@@ -69,16 +61,8 @@ var getResults = function(input) {
         }
     }
 
-    var result = `
-        <div class="row">
-        <span class="col-md-6">${input.value}</span>
-        <div class="col-md-6">
-        ${glyphicon}
-        </div>
-        </div>
-        `;
+    var result = '<div class="row"><span class="col-md-6">' + input.value + '</span><div class="col-md-6">' + glyphicon + '</div></div>';
     results.innerHTML += result;
-
 
     if (correct == 4) {
         console.log(correct);
@@ -95,15 +79,12 @@ var getResults = function(input) {
         }
 
     }
-
-
 }
 
 
 var showReplay = function() {
     document.getElementById('guessing-div').style.display = 'none';
     document.getElementById('replay-div').style.display = 'block';
-    setHiddenFields();
 }
 
 var code = document.getElementById('code');
@@ -121,7 +102,7 @@ var showAnswer = function(boolean) {
 
 var validateInput = function(input) {
     if (input.length != 4) {
-        setMessage("Guesses must be exactly 4 characters long. " + input);
+        setMessage("Guesses must be exactly 4 characters long.");
         return false;
     }
     return true;
