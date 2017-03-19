@@ -70,14 +70,16 @@ var getResults = function(input) {
         console.log(correct);
         setMessage('You Win! :)');
         showReplay();
-        return showAnswer(true);
+        showAnswer(true);
+        return true;
     } else {
         if (attempt.value < 10) {
             setMessage('Incorrect, try again.');
         } else {
             setMessage('You Lose! :(');
             showReplay();
-            return showAnswer(false);
+            showAnswer(false);
+            return false;
         }
 
     }
