@@ -34,7 +34,7 @@ var getResults = function(input) {
     var glyphicon = '';
     var correct = 0;
 
-    for (var i = 0, x = input.value.length; i < x; i++) {
+    for (var i = 0; i < 4; i++) {
         console.log(i);
         var valueSplit = values.split("");
         console.log(`${values} : ${valueSplit[i]} : ${answerSplit[i]}`);
@@ -44,7 +44,7 @@ var getResults = function(input) {
 
         } else {
             var count = 0;
-            for (var j = 0, anwserLength = answer.value.length; j < anwserLength; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (valueSplit[i] == answer.value[j]) {
                     console.log('no');
                     count = 1;
