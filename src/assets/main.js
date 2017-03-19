@@ -30,11 +30,12 @@ var guess = function() {
 //implement new functions here
 var getResults = function(input) {
     var values = input.value.toString();
-    var answerSplit = answer.value.toString().split("");
+    var answerString = answer.value.toString();
+    var answerSplit = answerString.split("");
     var glyphicon = '';
     var correct = 0;
 
-    for (var i = 0, x = 4; i < x; i++) {
+    for (var i = 0, x = values.length; i < x; i++) {
         console.log(i);
         var valueSplit = values.split("");
         console.log(`${values} : ${valueSplit[i]} : ${answerSplit[i]}`);
@@ -45,7 +46,7 @@ var getResults = function(input) {
 
         } else {
             var count = 0;
-            for (var j = 0, anwserLength = 4; j < anwserLength; j++) {
+            for (var j = 0, anwserLength = answerString.length; j < anwserLength; j++) {
                 if (valueSplit[i] == answer.value[j]) {
                     console.log('no');
                     count = 1;
