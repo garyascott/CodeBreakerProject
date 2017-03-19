@@ -29,8 +29,8 @@ var guess = function() {
 
 //implement new functions here
 var getResults = function(input) {
-    var values = input.value.toString();
-    var answerString = answer.value.toString();
+    var values = document.getElementById('user-guess').value.toString();
+    var answerString = document.getElementById('answer').value.toString();
     var answerSplit = answerString.split("");
     var glyphicon = '';
     var correct = 0;
