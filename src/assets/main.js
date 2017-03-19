@@ -29,22 +29,23 @@ var guess = function() {
 
 //implement new functions here
 var getResults = function(input) {
-    var values = input.value;
-    var answerSplit = answer.value.split("");
+    var values = input.value.toString();
+    var answerSplit = answer.value.toString().split("");
     var glyphicon = '';
     var correct = 0;
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0, x = 4; i < x; i++) {
         console.log(i);
         var valueSplit = values.split("");
         console.log(`${values} : ${valueSplit[i]} : ${answerSplit[i]}`);
         if (valueSplit[i] == answerSplit[i]) {
+
             glyphicon += `<span class="glyphicon glyphicon-ok"></span>`;
             correct += 1;
 
         } else {
             var count = 0;
-            for (var j = 0; j < 4; j++) {
+            for (var j = 0, anwserLength = 4; j < anwserLength; j++) {
                 if (valueSplit[i] == answer.value[j]) {
                     console.log('no');
                     count = 1;
